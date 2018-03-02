@@ -1,8 +1,14 @@
 <html>
+<meta charset="UTF-8"> 
 <head>
+  <link rel="stylesheet" type="text/css" href="live-edit.css">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  <script src="http://localhost:8080/commons.js"></script>
-  <script src="http://localhost:8080/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+  <script src="./serlo_math_puzzle_algebra.js"></script>
+  <script src="./serlo_math_puzzle_touchop.js"></script>
+  <script src="./serlo_math_puzzle.js"></script>
   <script>
     window.onload = function() {
       var puzzle= document.getElementById('math-puzzle');

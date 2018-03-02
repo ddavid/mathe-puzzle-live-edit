@@ -7,9 +7,9 @@
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
 
-import d3 from 'd3'
+//import d3 from 'd3'
 
-import algebra from './serlo_math_puzzle_algebra'
+//import algebra from './serlo_math_puzzle_algebra'
 
 // setup event listeners for the svg canvas
 function setupCanvas (svgElement) {
@@ -38,7 +38,7 @@ function setupCanvas (svgElement) {
     .on('mousedown', grabElement)
     .on('touchstart', grabElement)
   deepLayout(svgElement, true)
-  algebra.verify(svgElement)
+  verify(svgElement)
 
   // setup event listeners for an element. This function is called
   // when an element is moved out of the palette
@@ -259,7 +259,7 @@ function setupCanvas (svgElement) {
       layout(target)
     }
 
-    algebra.verify(svgElement)
+    verify(svgElement)
   }
 
   // This method is called when an object is draged on the background.
@@ -662,7 +662,7 @@ function getTransformToElement (obj, target) {
 }
 
 function getCurrentValue () {
-  return algebra.getLastValue()
+  return getLastValue()
 }
 
 const TouchOp = {
@@ -670,4 +670,4 @@ const TouchOp = {
   getCurrentValue: getCurrentValue
 }
 
-export default TouchOp
+//export default TouchOp

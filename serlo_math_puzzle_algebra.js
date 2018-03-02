@@ -218,4 +218,4 @@ function evalPn(structure, data) {
   }
 }
 
-export default Algebra
+//export default Algebra

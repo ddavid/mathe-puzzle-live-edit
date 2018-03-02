@@ -7,11 +7,11 @@
  * @link        https://github.com/serlo-org/athene2 for the canonical source repository
  */
 
-import $ from 'jquery'
-import d3 from 'd3'
+//import $ from 'jquery'
+//import d3 from 'd3'
 
-import touchop from './serlo_math_puzzle_touchop'
-import verify from './serlo_math_puzzle_algebra'
+//import touchop from './serlo_math_puzzle_touchop'
+//import verify from './serlo_math_puzzle_algebra'
 
 function makePuzzle (parent, inputStr) {
   var emog,
@@ -128,7 +128,7 @@ function makePuzzle (parent, inputStr) {
 
   if (showResult) {
     svg.on('mouseover', function () {
-      var val = touchop.getCurrentValue()
+      var val = TouchOp.getCurrentValue()
       if (val) {
         val = Math.round(val * 1000) / 1000
         d3
@@ -143,7 +143,7 @@ function makePuzzle (parent, inputStr) {
       }
     })
   }
-  touchop.setupCanvas(svg[0][0])
+  TouchOp.setupCanvas(svg.node())
 }
 
 function addNamedOperator (operatorName, parent) {
@@ -260,7 +260,7 @@ function addAtom (elt, value, text) {
     .attr('data-ismovable', 'true')
     .attr('class', 'atom')
   addLiteral(g, text || value)
-  g[0][0].addEventListener('mousedown', touchop.msDown)
+  g.node().addEventListener('mousedown', TouchOp.msDown)
   return g
 }
 
@@ -382,4 +382,4 @@ $.fn.MathPuzzleVerify = verify
 
 const MathPuzzle = { makePuzzle: makePuzzle }
 
-export default MathPuzzle
+//export default MathPuzzle

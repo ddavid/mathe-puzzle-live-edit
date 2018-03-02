@@ -1,0 +1,126 @@
+.math-puzzle {
+  margin: 5px 0;
+  overflow: hidden;
+  background-color: white;
+  outline: rgba(0, 0, 0, 0.8) solid 1px;
+}
+.math-puzzle .exercise {
+  margin: 10px 130px -210px 10px;
+  height: 200px;
+  overflow: hidden;
+}
+.math-puzzle.solved [data-goal] .background {
+  fill: #95bc1a;
+}
+.math-puzzle .fullscreen-toggle {
+  height: 80px;
+  width: 130px;
+  float: right;
+  margin: 5px 5px -85px 0;
+  background-image: url('https://package-registry.serlo.org/athene2-assets@0/b1c16459e37b11d84a559dadf034d968.svg');
+  background-size: 130px 320px;
+  background-position: right 0;
+  cursor: pointer;
+  position: relative;
+  display: none;
+  z-index: 10;
+}
+.math-puzzle.fullscreen .fullscreen-toggle {
+  background-position: right -80px;
+}
+.math-puzzle.fullscreen.solved .fullscreen-toggle {
+  background-position: right -155px;
+}
+.math-puzzle.solved .fullscreen-toggle {
+  background-position: right -235px;
+}
+.math-puzzle.fullscreen .fullscreen-toggle {
+  display: inline;
+}
+@media (max-width: 768px) {
+  .math-puzzle .fullscreen-toggle {
+    display: inline;
+  }
+}
+.math-puzzle text {
+  font-size: 48px;
+}
+.math-puzzle .atom {
+  text-anchor: middle;
+}
+.math-puzzle [data-goal] .background, .math-puzzle .palette .background {
+  fill: deepskyblue;
+  stroke-width: 1;
+}
+
+/*.math-puzzle [data-frozen="true"] .background {
+  fill: darkgray;
+  stroke: rgba(0, 0, 0, 0.2);
+}*/
+
+.math-puzzle .background {
+  fill: lightgray;
+  stroke: rgba(0, 0, 0, 0.2);
+}
+.math-puzzle .operand > .background {
+  fill: #ffffe0;
+  stroke: black;
+}
+.math-puzzle .grabbed [data-goal].operand > .background, .math-puzzle .grabbed [data-goal] .operand > .background {
+  fill: #d9edf7;
+  stroke-width: 4;
+  stroke: black;
+}
+.math-puzzle [data-ismovable='true'] {
+  cursor: grab;
+}
+
+.math-puzzle .grabbed {
+  cursor: grabbing;
+}
+
+.math-puzzle [data-frozen='true'] {
+  cursor: pointer;
+}
+.math-puzzle .shadow {
+  fill: black;
+  opacity: 0.4;
+}
+.math-puzzle #plotpath {
+  fill: none;
+  stroke: blue;
+  stroke-width: 3px;
+}
+.math-puzzle path.axes {
+  fill: none;
+  stroke: black;
+  stroke-width: 0.5px;
+}
+.math-puzzle circle.graph {
+  fill: navy;
+  stroke: #000;
+  opacity: 0.9;
+  stroke-width: 1px;
+}
+.math-puzzle rect.canvas {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+.math-puzzle text.axes {
+  font-size: 10pt;
+  text-anchor: middle;
+}
+.math-puzzle #turtle {
+  fill: red;
+  stroke: #000;
+  stroke-width: 1px;
+}
+.math-puzzle .move {
+  fill: white;
+  stroke: black;
+  stroke-width: 2;
+  opacity: 0.5;
+  pointer-events: none;
+}
+

@@ -13,12 +13,12 @@
   fill: #95bc1a;
 }
 .math-puzzle .fullscreen-toggle {
-  height: 80px;
-  width: 130px;
+  height: 15px;
+  width: 15px;
   float: right;
   margin: 5px 5px -85px 0;
-  background-image: url('https://package-registry.serlo.org/athene2-assets@0/b1c16459e37b11d84a559dadf034d968.svg');
-  background-size: 130px 320px;
+  background-image: url(./fullscreen.svg);
+  background-size: contain;
   background-position: right 0;
   cursor: pointer;
   position: relative;
@@ -26,14 +26,14 @@
   z-index: 10;
 }
 .math-puzzle.fullscreen .fullscreen-toggle {
-  background-position: right -80px;
+  background-position: right -15px;
 }
-.math-puzzle.fullscreen.solved .fullscreen-toggle {
+/*.math-puzzle.fullscreen.solved .fullscreen-toggle {
   background-position: right -155px;
 }
 .math-puzzle.solved .fullscreen-toggle {
   background-position: right -235px;
-}
+}*/
 .math-puzzle.fullscreen .fullscreen-toggle {
   display: inline;
 }
@@ -74,11 +74,9 @@
 .math-puzzle [data-ismovable='true'] {
   cursor: grab;
 }
-
 .math-puzzle .grabbed {
   cursor: grabbing;
 }
-
 .math-puzzle [data-frozen='true'] {
   cursor: pointer;
 }
@@ -123,4 +121,3 @@
   opacity: 0.5;
   pointer-events: none;
 }
-

@@ -38,7 +38,7 @@ function makePuzzle (parent, inputStr) {
     .select(parent)
     .append('svg')
     .attr('width', '100%')
-    .attr('viewBox', '0 0 600 400')
+    .attr('viewBox', '0 0 600 470')
 
   /* var res = d3
     .select(parent)
@@ -110,7 +110,8 @@ function makePuzzle (parent, inputStr) {
   solution = addOperand(svg)
     .attr('transform', 'translate(250,150)')
     .attr('data-frozen', true)
-    .attr('data-goal', challengeStr.split(/=/)[0])
+    .attr('data-goal', 'true')
+  solution.node().goal= parsePn(challengeStr.split(/=/)[0])
   operatorNames = challengeStr.replace(/.*= */, '').split(/ +/)
   palette = addPalette(svg)
   for (i in operatorNames) {
@@ -158,6 +159,8 @@ function addNamedOperator (operatorName, parent) {
       return addPlus(parent)
     case '-':
       return addMinus(parent)
+    /*case 'eq':
+      return addEquals(parent)*/
     case 'pi':
       return addAtom(parent, 'Math.PI', '\u03C0')
     case '!':
@@ -228,7 +231,7 @@ function addPalette (elt) {
   palette
     .append('rect')
     .attr('width', 600)
-    .attr('height', 70)
+    .attr('height', 140)
     .attr('fill', 'lightblue')
   return palette
 }
@@ -373,12 +376,27 @@ function addMinus (elt) {
   return g
 }
 
+// Equals operator
+/*function addEquals (elt) {
+  var g = addOperator(elt)
+    .attr('data-operator', '=')
+    .attr('data-value', '#1 = #2')
+    .attr('data-priority', '0')
+    .attr('data-layout', 'horizontalLayout')
+  addOperand(g)
+  g.append('text').text('=')
+  addOperand(g)
+  return g
+}
+*/
+
 $.fn.MathPuzzle = function () {
   return $(this).each(function () {
     makePuzzle(this, $(this).data('source'))
   })
 }
 $.fn.MathPuzzleVerify = verify
+$.fn.parsePn = parsePn
 
 const MathPuzzle = { makePuzzle: makePuzzle }
 

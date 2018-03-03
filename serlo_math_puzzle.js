@@ -38,7 +38,7 @@ function makePuzzle (parent, inputStr) {
     .select(parent)
     .append('svg')
     .attr('width', '100%')
-    .attr('viewBox', '0 0 600 470')
+    .attr('viewBox', '0 0 600 400')
 
   /* var res = d3
     .select(parent)
@@ -231,7 +231,7 @@ function addPalette (elt) {
   palette
     .append('rect')
     .attr('width', 600)
-    .attr('height', 140)
+    .attr('height', 70)
     .attr('fill', 'lightblue')
   return palette
 }

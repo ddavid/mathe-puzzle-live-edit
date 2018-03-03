@@ -49,42 +49,8 @@
   .error { display : none; color: red }
 </style>
 <body style="width:80%;margin-left:10%" id="page" class="markdown-body">
-    <div class="main" style="position:relative">
-        <h1>Math Puzzle Prototyping</h1>
-        <dl class="codebox" style="cursor: pointer;" onclick="this.getElementsByTagName('div')[0].style.display=((this.getElementsByTagName('div')[0].style.display=='none')?'':'none');">
-          <h2>Anleitung <span style="color:blue;">&#8690</span>
-          </h2>
-	  
-          <dd>
-            <div style="display:none;">
-              <h3>Bestandteile des Mathe Puzzles:</h3>
-              <ol>
-                <li><b>Lösung</b></li>
-Die Lösung ist der Term mit dem das Puzzle laufend verglichen wird, um zu schauen, ob die Aufgabe schon gelöst wurde.
-                <li><b>Bausteine</b></li>
-Bausteine sind in der blauen Spalte an der unteren Seite des Puzzles zu sehen und können von den Nutzern verschoben werden, um der Lösung näher zu kommen.
-                <li><b>Startformel</b></li>
-Die Startformel legt den Rahmen der Aufgabe fest indem gewisse Bausteine in der Aufgabe im Lösungsbereich von Anfang an festgefroren sind. Diese Bausteine können von dem Nutzer nicht bewegt werden. Somit kann man also eine Art Lückentext zusammenstellen oder einfach die Anzahl an Lösungswegen limitieren.
-             </ol>
-	     <br>
-             <p>Alle drei Bestandteile werden im <code>Puzzle-Source</code> festgelegt in der Form <br><code>Lösung = Bausteine | Startformel </code><br>
-Einige Sachen sind beim erstellen des Puzzles zu beachten:
-             <ul>
-               <li>Die Lösung kann eine Nummer sein oder auch ein Term, der noch weiter vereinfacht werden könnte.</li>
-               <li>Bausteine müssen durch Leerzeichen getrennt werden. Verfügbare Operatoren sind <br><code>{ + ,- ,* , /, ^ }</code></li>
-               <li>Variablen könnt ihr auch benutzen, indem ihr vor einem einzelnen Buchstaben oder Zeichenkette ein <code>&</code> hinzufügt. <br>z.B. <code>&x</code> oder auch so <code>&yolo</code></li>
-               <li>In der Startformel kann man Lücken einfügen mit dem Platzhalter <code>#</code></li>
-               <li>Bei der Startformel kann man leider leider nicht einfach den Term so aufschreiben, wie man es normalerweise machen würde. Das Mathe Puzzle erwartet ein Term in <a href="https://de.wikipedia.org/wiki/Polnische_Notation">Normale Polnische Notation</a></li>
-             </ul>
-             <h4>Polnische Notation</h4>
-               <p>Die einfachste Art und Weise die gewünschte Startformel in normaler polnischer Notation zu bekommen, ist die Formel als Baum aufzuschreiben. <br><code>1 - (5 + 3)</code> würde zB dem folgenden Baum entsprechen: <br><br><img src="bsp-baum.svg" alt="Polnische Normal Notation Baum"><br><br>In polnischer Notation: <code>- 1 + 3 5</code><br>
-Der Trick ist also den Term in ein Baum umzuschreiben und dann in der richtigen Reihenfolge die Bestandteile aufzuschreiben.<br><br><br><img src="./beispiel/bsp-baum.gif" alt="Tiefendurchlauf Abstract Syntax Tree">
-
-</p>
-              </ol>
-            </div>
-          </dd>
-        </dl>
+  <h1>Math Puzzle Prototyping</h1>
+  <p>Zur Anleitung <a href="#anleitung">&#8690</a></p><br>
         <div>
           Puzzle source:<br/>
           <input id="puzzle-source" style="width:70%;padding:2px" value="2 = 1 1 +"></input>
@@ -109,6 +75,31 @@ Der Trick ist also den Term in ein Baum umzuschreiben und dann in der richtigen 
             <div class="exercise" id="exercise">Problem description</div>
         </div>
     </div>
-    <div class="fullscreen-toggle"></div>
+    <div class="main" style="position:relative">
+          <h2><a name="anleitung"></a>Anleitung</h2>
+              <h3>Bestandteile des Mathe Puzzles:</h3>
+              <ol>
+                <li><b>Lösung</b></li>
+Die Lösung ist der Term mit dem das Puzzle laufend verglichen wird, um zu schauen, ob die Aufgabe schon gelöst wurde. Falls die Lösung ein Term ist, muss <a href="#polnisch">die Syntax</a> beachtet werden. 
+                <li><b>Bausteine</b></li>
+Bausteine sind in der blauen Spalte an der unteren Seite des Puzzles zu sehen und können von den Nutzern verschoben werden, um der Lösung näher zu kommen.
+                <li><b>Startformel</b></li>
+Die Startformel legt den Rahmen der Aufgabe fest indem gewisse Bausteine in der Aufgabe im Lösungsbereich von Anfang an festgefroren sind. Diese Bausteine können von dem Nutzer nicht bewegt werden. Somit kann man also eine Art Lückentext zusammenstellen oder einfach die Anzahl an Lösungswegen limitieren.
+              </ol>
+	     <br>
+             <p>Alle drei Bestandteile werden im <code>Puzzle-Source</code> festgelegt in der Form <br><br><code>Lösung = Bausteine | Startformel </code><br><br>
+Einige Sachen sind beim erstellen des Puzzles zu beachten:
+             <ul>
+               <li>Die Lösung kann eine Nummer sein oder auch ein Term, der noch weiter vereinfacht werden könnte. Falls es ein Term ist, muss dieser in normaler polnische Notation geschrieben sein</li>
+               <li>Bausteine müssen durch Leerzeichen getrennt werden. Verfügbare Operatoren sind <br><code>{ + ,- ,* , /, ^ }</code></li>
+               <li>Variablen könnt ihr auch benutzen, indem ihr vor einem einzelnen Buchstaben oder Zeichenkette ein <code>&</code> hinzufügt. <br>z.B. <code>&x</code> oder auch so <code>&yolo</code></li>
+               <li>In der Startformel kann man Lücken einfügen mit dem Platzhalter <code>#</code></li>
+               <li>Bei der Startformel kann man leider leider nicht einfach den Term so aufschreiben, wie man es normalerweise machen würde. Das Mathe Puzzle erwartet ein Term in <a href="https://de.wikipedia.org/wiki/Polnische_Notation">Normale Polnische Notation</a></li>
+             </ul>
+             <h4><a name="polnisch"></a>Polnische Notation</h4>
+               <p>Die einfachste Art und Weise die gewünschte Startformel in normaler polnischer Notation zu bekommen, ist die Formel als Baum aufzuschreiben. <br><code>1 - (5 + 3)</code> würde zB dem folgenden Baum entsprechen: <br><br><img src="bsp-baum.svg" alt="Polnische Normal Notation Baum"><br><br>In polnischer Notation: <code>- 1 + 3 5</code><br>
+Der Trick ist also den Term in ein Baum umzuschreiben und dann in der richtigen Reihenfolge die Bestandteile aufzuschreiben.<br><br><br><img src="./beispiel/bsp-baum.gif" alt="Tiefendurchlauf Abstract Syntax Tree">  
+               </p>
+     </div>
 </body>
 </html>

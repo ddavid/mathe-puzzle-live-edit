@@ -344,7 +344,7 @@ function addDivide (elt) {
 // Leichte Division
 function addSimpleDivision (elt) {
   var g = addOperator(elt)
-    .attr('data-operator', '/')
+    .attr('data-operator', ':')
     .attr('data-value', '#1 / #2')
     .attr('data-priority', '99')
     .attr('data-layout', 'horizontalLayout')

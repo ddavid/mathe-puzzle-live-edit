@@ -37,6 +37,7 @@ function makePuzzle (parent, inputStr) {
   svg = d3
     .select(parent)
     .append('svg')
+    .attr('id', 'puzzle-svg')
     .attr('width', '100%')
     .attr('viewBox', '0 0 600 400')
 
@@ -159,6 +160,8 @@ function addNamedOperator (operatorName, parent) {
       return addPlus(parent)
     case '-':
       return addMinus(parent)
+    case ':':
+      return addSimpleDivision(parent)
     /*case 'eq':
       return addEquals(parent)*/
     case 'pi':
@@ -313,6 +316,7 @@ function addPower (elt) {
   return g
 }
 
+// Bruchdarstellung Division
 function addDivide (elt) {
   var g = addOperator(elt)
     .attr('data-operator','/')
@@ -333,6 +337,19 @@ function addDivide (elt) {
     .append('g')
     .attr('transform', 'scale(0.8)')
     .attr('data-priority', '100')
+  addOperand(g)
+  return g
+}
+
+// Leichte Division
+function addSimpleDivision (elt) {
+  var g = addOperator(elt)
+    .attr('data-operator', '/')
+    .attr('data-value', '#1 / #2')
+    .attr('data-priority', '99')
+    .attr('data-layout', 'horizontalLayout')
+  addOperand(g)
+  g.append('text').text(':')
   addOperand(g)
   return g
 }

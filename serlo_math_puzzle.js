@@ -212,7 +212,7 @@ function parsePn (string) {
       return x
     })
     .reduce((stack, value) => {
-      var isOperator = value.match(/[+*/^-]/)
+      var isOperator = value.match(/[+*/:^]|-(?= )/)
       if (isOperator) {
         stack.push([value, safePop(stack), safePop(stack)])
       } else {
